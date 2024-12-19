@@ -41,26 +41,30 @@ class Player{
     void pilihJob(){
         int jobnya;
         cout << "Pilih job/kelas:\n1. Ksatria\n2. Penyihir\n3. Pemanah\n";
+
         do {
-        cout << "Pilih job/kelas mu " << nama << ": ";
-        cin >> jobnya;
-        jobnya -= 1;
+            cout << "Pilih job/kelas mu " << nama << ": ";
+            cin >> jobnya;
+            jobnya -= 1;
         } while (debruyne(listJob[jobnya]) || jobnya < 0 || jobnya > 2);
+        
         job = listJob[jobnya];
+        
         switch (jobnya) {
-        case 0:
-            hp += 100;
-            def += 75;
-            break;
-        case 1:
+        
+            case 0:
+                hp += 100;
+                def += 75;
+                break;
+            case 1:
             //===============================================================//
             ///Belum ada tambahan bonus untuk Penyihir (Belum kepikiran jir)///
             //===============================================================//
-            break;
-        case 2:
-            def += 25;
-        default:
-            break;
+                break;
+            case 2:
+                def += 25;
+            default:
+                break;
         }
         string blank;
         getline(cin, blank);
