@@ -124,6 +124,10 @@ class Story {
             "Dengan bantuan teman-teman dan guru-gurunya, ia bertekad untuk melawan kekuatan tersebut dan melindungi dunia dari kehancuran.",
             "Petualangan besar ini tidak hanya akan menguji kemampuan fisiknya, tetapi juga kekuatan hatinya."
         };
+        string texts5[] = {
+            "Dan pemuda itu berama",
+            "....."
+        };
         string dot = ".....";
 
         //=========//
@@ -177,6 +181,16 @@ class Story {
             usleep(delay2);
         }
         enter();
+
+        //=========//
+        ///Texts 5///
+        //=========//
+        for (const auto& text : texts5) {
+            tampilkanText(text, delay);
+            enter();
+        }
+        enter();
+
     }
 }story;
 
@@ -185,4 +199,6 @@ int main(){
     string blank;
     system("cls || clear");
     story.Story1();
+    player.inputPemain();
+    player.pilihJob();
 }
