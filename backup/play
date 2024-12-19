@@ -1,0 +1,2 @@
+g++ -I./fungsi gas.cpp ./fungsi/*.cpp  -o run
+./run
