@@ -25,11 +25,13 @@ class Player{
     int def = 25;
     int level = 1;
     int EXP = 0;
+    int hp = 100;
+    int damage;
+
     string nama;
     string job;
     string listJob[3] = {"Ksatria", "Penyihir", "Pemanah"};
-    int hp = 100;
-
+    
     void inputPemain(){
         cout << "Masukkan nama: ";
         getline(cin, nama);
@@ -40,7 +42,7 @@ class Player{
 
     void pilihJob(){
         int jobnya;
-        cout << "Pilih job/kelas:\n1. Ksatria\n2. Penyihir\n3. Pemanah\n";
+        cout << RED << "Pilih job/kelas:\n1. Ksatria\n2. Penyihir\n3. Pemanah\n" << RESET;
 
         do {
             cout << "Pilih job/kelas mu " << nama << ": ";
@@ -57,9 +59,7 @@ class Player{
                 def += 75;
                 break;
             case 1:
-            //===============================================================//
-            ///Belum ada tambahan bonus untuk Penyihir (Belum kepikiran jir)///
-            //===============================================================//
+                damage += 50;
                 break;
             case 2:
                 def += 25;
