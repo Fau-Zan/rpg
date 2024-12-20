@@ -120,6 +120,15 @@ class Story {
         cout << "\033[2K\033[A\r";
     }
 
+    void enter3 (){
+        cout << "\n\n";
+        cout << "Tekan enter untuk melanjutkan...";
+        cin.get();
+        cout << "\033[2K\033[A\r                               ";
+        cout << "\033[2K\033[A\r                               ";
+        cout << "\033[2K\033[A\r";
+    }
+
     void tampilkanText(const string& text, int d) {
         for (size_t i = 0; i < text.length(); i++) {
             cout << YELLOW << text[i] << RESET;
@@ -180,7 +189,7 @@ class Story {
         //=========//
         for (const auto& text : texts1) {
             tampilkanText(text, delay);
-            enter2();
+            enter3();
         }
         system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
@@ -194,7 +203,7 @@ class Story {
         //=========//
         for (const auto& text : texts2) {
             tampilkanText(text, delay);
-            enter2();
+            enter3();
         }
         system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
@@ -208,7 +217,7 @@ class Story {
         //=========//
         for (const auto& text : texts3) {
             tampilkanText(text, delay);
-            enter2();
+            enter3();
         }
         system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
@@ -222,7 +231,7 @@ class Story {
         //=========//
         for (const auto& text : texts4) {
             tampilkanText(text, delay);
-            enter2();
+            enter3();
         }
         system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
@@ -236,7 +245,7 @@ class Story {
         //=========//
         for (const auto& text : texts5) {
             tampilkanText(text, delay);
-            enter2();
+            enter3();
         }
         system("cls ||  clear");
 
