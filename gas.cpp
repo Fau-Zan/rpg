@@ -20,6 +20,17 @@
 #define BLUE    "\033[34m"
 using namespace std;
 
+class npc{
+public:
+    string Rinrin = "Rinrin";
+    string Kuo = "Kuo";
+    string Miosi = "Miosi";
+    string Baki = "Baki";
+    string Guru = "Guru Syntha";
+    string Migure = "Migure";
+    string Darui = "Darui";
+}NPC;
+
 class Player{
     public:
 
@@ -32,7 +43,7 @@ class Player{
     string nama;
     string job;
     string listJob[3] = {"Ksatria", "Penyihir", "Pemanah"};
-    
+
     void inputPemain(){
         cout << "Masukkan nama: ";
         getline(cin, nama);
@@ -50,11 +61,11 @@ class Player{
             cin >> jobnya;
             jobnya -= 1;
         } while (debruyne(listJob[jobnya]) || jobnya < 0 || jobnya > 2);
-        
+
         job = listJob[jobnya];
-        
+
         switch (jobnya) {
-        
+
             case 0:
                 hp += 100;
                 def += 75;
@@ -88,10 +99,25 @@ class Story {
     int delay2 = 700000;
     int i;
 
+    void tampilkanNamaPlayer(){
+        for (char namaPlayer : player.nama){
+                cout<< namaPlayer;
+                usleep(delay);
+            }
+    }
+
     void enter (){
         cout << "\n\nTekan enter untuk melanjutkan...";
         cin.get();
         system("cls || clear");
+    }
+
+    void enter2 (){
+        cout << "\n\n";
+        cout << "Tekan enter untuk melanjutkan...";
+        cin.get();
+        cout << "\033[2K\033[A\r                               ";
+        cout << "\033[2K\033[A\r";
     }
 
     void tampilkanText(const string& text, int d) {
@@ -102,11 +128,25 @@ class Story {
         cout << endl;
     }
 
+    void tampilkanTextNPC(const string& text, int d) {
+        for (size_t i = 0; i < text.length(); i++) {
+            cout << text[i] << RESET;
+            usleep(d);
+        }
+    }
+    void tampilkanNamaNPC(int d, const string& nama) {
+        for (size_t i = 0; i < nama.length(); i++) {
+            cout << GREEN << nama[i] << RESET;
+            usleep(d);
+        }
+        cout << ": ";
+    }
+
     //========//
     ///Prolog///
     //========//
-    void Story1 (){
-        
+    void Prolog (){
+
         string texts1[] = {
             "Di sebuah dunia yang dipenuhi dengan makhluk ajaib dan kekuatan kuno, terdapat sebuah akademi legendaris yang terletak di puncak gunung tertinggi.",
             "Akademi ini hanya menerima murid-murid yang memiliki potensi luar biasa dalam seni bela diri dan sihir.",
@@ -140,8 +180,9 @@ class Story {
         //=========//
         for (const auto& text : texts1) {
             tampilkanText(text, delay);
-            enter();
+            enter2();
         }
+        system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
             cout << YELLOW << dot[i] << RESET;
             usleep(delay2);
@@ -153,8 +194,9 @@ class Story {
         //=========//
         for (const auto& text : texts2) {
             tampilkanText(text, delay);
-            enter();
+            enter2();
         }
+        system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
             cout << YELLOW << dot[i] << RESET;
             usleep(delay2);
@@ -166,8 +208,9 @@ class Story {
         //=========//
         for (const auto& text : texts3) {
             tampilkanText(text, delay);
-            enter();
+            enter2();
         }
+        system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
             cout << YELLOW << dot[i] << RESET;
             usleep(delay2);
@@ -179,8 +222,9 @@ class Story {
         //=========//
         for (const auto& text : texts4) {
             tampilkanText(text, delay);
-            enter();
+            enter2();
         }
+        system("cls ||  clear");
         for (size_t i = 0; i < dot.length(); i++) {
             cout << YELLOW << dot[i] << RESET;
             usleep(delay2);
@@ -192,10 +236,65 @@ class Story {
         //=========//
         for (const auto& text : texts5) {
             tampilkanText(text, delay);
-            enter();
+            enter2();
+        }
+        system("cls ||  clear");
+
+    }
+
+    void Story1 () {
+        string dot = ".....";
+        for (size_t i = 0; i < dot.length(); i++) {
+            cout << YELLOW << dot[i] << RESET;
+            usleep(delay2);
         }
         enter();
 
+        string texts1[] = {
+            "Pagi hari di akademi.....\nTerdengar suara ramai seperti biasa di mana-mana",
+            ".....",
+            "Aku mendengar seseorang memanggilku",
+
+        };
+
+        string texts1_1[] = {"???: "};
+        string texts1_2[] = {", mau kemana?"};
+
+        string texts1_y[] = {
+            "Kalau begitu..... ayo sama-sama ke kelas selanjutnya",
+            "Kau tahu? Ku dengar kelas selanjutnya akan mengetes kemampuan kita",
+            "Kita akan dipasangkan dengan seseorang dari kelas lain lalu saling mengadu kemampuan",
+            "Sepertinya mereka ingin mengetahui seberapa mahir kita dalam kemampuan yang kita dalami ini",
+        };
+        string texts1_n[] = {
+            " Ohhh... okee...",
+            " Sampai jumpa, "
+        };
+
+        for (const auto& text : texts1) {
+            tampilkanText(text, delay);
+            enter();
+        }
+        for (const auto& text : texts1_1) {
+            tampilkanTextNPC(text, delay);
+        }
+        tampilkanNamaPlayer();
+        for (const auto& text : texts1_2) {
+            tampilkanTextNPC(text, delay);
+        }
+        enter();
+
+        cout << "Ternyata itu " << GREEN << "Rinrin" << RESET;
+        enter();
+
+        //================//
+        ///Disini pake if///
+        //================//
+        for (const auto& text : texts1_y) {
+            tampilkanNamaNPC(delay, NPC.Rinrin);
+            tampilkanTextNPC(text, delay);
+            enter2();
+        }
     }
 }story;
 
@@ -203,7 +302,13 @@ class Story {
 int main(){
     string blank;
     system("cls || clear");
-    story.Story1();
+
+    story.Prolog();
+
     player.inputPemain();
     player.pilihJob();
+
+    system ("cls || clear");
+
+    story.Story1();
 }
